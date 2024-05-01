@@ -3,9 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { __decorate } from "tslib";
 import { __metadata } from "tslib";
 import { HttpClient } from '@angular/common/http';
-
-
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -18,17 +16,23 @@ export class LoginComponent {
 
   loginObject: Login;
 
-  constructor(private http: HttpClient) {
+
+  constructor(private http: HttpClient, private Router: Router) {
     this.loginObject = new Login('', '');
   }
 
   loginfunction() {
-    console.log(this.loginObject," has lanzado el evento loginfunction()");
-    this.http.post('http://localhost:3000/login', this.loginObject).subscribe((data) => {
-      console.log(data);
-    });
-  }
 
+    this.http.post('http://localhost:3000/userRoute/login', this.loginObject).subscribe((data: any) => {
+      if (data['user']['role'] == 'admin') {
+        this.Router.navigate(['/home']);
+      }
+      else {
+        this.Router.navigate(['/user']);
+      }
+    }
+    );
+  }
 }
 
 export class Login {

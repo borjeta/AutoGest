@@ -3,13 +3,18 @@ const connection = require('../connection');
 const router = express.Router();
 
 
-router.post('/', (req, res) => {
-    return res.status(200).send('Login successful');
-    let { username, password } = req.body;
-    let sql = `SELECT * FROM users WHERE username = '${username}' AND password = '${password}'`;
+router.post('/login', (req, res) => {
+
+
+    let { email, password } = req.body;
+
+    let sql = `SELECT * FROM autogest.users WHERE email = '${email}' AND password = '${password}'`;
     connection.query(sql, (err, result) => {
         if (err) {
-            res.status(500).json({ error: 'Internal server error' });
+            res.status(500).json({
+                error: 'Internal server error',
+                detalles: err
+            });
             return;
         }
         if (result.length === 0) {
@@ -17,8 +22,16 @@ router.post('/', (req, res) => {
             return;
         }
 
-        res.status(200).send('Login successful');
+        if (result.length > 0) {
+            res.status(200).json({
+                message: 'Login successful',
+                user: result[0],
+            });
+            return;
+        }
+
     });
+
 });
 
 router.post('/register', (req, res) => {
