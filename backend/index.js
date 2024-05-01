@@ -1,7 +1,6 @@
 const express = require('express');
 var cors = require('cors');
 const connection = require('./connection');
-const
 const app = express();
 
 
