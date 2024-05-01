@@ -1,0 +1,22 @@
+/**CSS para el login centrado en la pantalla */
+.login {
+    margin-top: 100px;
+    align-items: center;
+
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.img-login {
+    height: 100%;
+    width: 100%;
+    margin-bottom: 20px;
+    background-color: transparent;
+}
