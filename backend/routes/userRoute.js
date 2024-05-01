@@ -54,6 +54,17 @@ router.post('/register', (req, res) => {
     });
 });
 
+router.get('/users', (req, res) => {
+    let sql = `SELECT * FROM users`;
+    connection.query(sql, (err, result) => {
+        if (err) {
+            res.status(500).json({ error: 'Internal server error' });
+            return;
+        }
+        res.status(200).json(result);
+    });
+});
+
 
 
 
