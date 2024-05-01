@@ -3,7 +3,8 @@ const connection = require('../connection');
 const router = express.Router();
 
 
-router.post('/login', (req, res) => {
+router.post('/', (req, res) => {
+    return res.status(200).send('Login successful');
     let { username, password } = req.body;
     let sql = `SELECT * FROM users WHERE username = '${username}' AND password = '${password}'`;
     connection.query(sql, (err, result) => {

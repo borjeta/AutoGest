@@ -10,5 +10,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use('/userRoute', userRoute);
 
+
 module.exports = app;
 
