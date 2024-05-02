@@ -16,7 +16,10 @@ router.post('/login', (req, res) => {
             return;
         }
         if (result.length === 0) {
-            res.status(401).send('Invalid username or password');
+            res.status(401).json({
+                error: 'Incorrect email or password',
+                detalles: err
+            });
             return;
         }
 
