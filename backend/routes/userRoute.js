@@ -4,8 +4,6 @@ const router = express.Router();
 
 
 router.post('/login', (req, res) => {
-
-
     let { email, password } = req.body;
 
     let sql = `SELECT * FROM autogest.users WHERE email = '${email}' AND password = '${password}'`;
@@ -52,9 +50,6 @@ router.post('/register', (req, res) => {
     });
 });
 
-
-
-
 router.post('/register', (req, res) => {
     let { username, password } = req.body;
     let sql = `INSERT INTO users (username, password) VALUES ('${username}', '${password}')`;
@@ -77,13 +72,6 @@ router.get('/users', (req, res) => {
         res.status(200).json(result);
     });
 });
-
-
-
-
-
-
-
 
 
 module.exports = router;
