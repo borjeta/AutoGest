@@ -25,10 +25,12 @@ export class LoginComponent {
 
     this.http.post('http://localhost:3000/userRoute/login', this.loginObject).subscribe((data: any) => {
       if (data['user']['role'] == 'admin') {
-        this.Router.navigate(['/home']);
+        this.Router.navigate(['/home-admin']);
       }
-      else {
-        this.Router.navigate(['/user']);
+      else if (data['user']['role'] == 'user') {
+        this.Router.navigate(['/home-user']);
+      } else if (data['user']['role'] == 'propietario') {
+        this.Router.navigate(['/home-propietario']);
       }
     }
     );
