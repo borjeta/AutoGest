@@ -8,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrl: './navbar-admin.component.css'
 })
 export class NavbarAdminComponent {
+  logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('role');
+    localStorage.removeItem('email');
 
+    window.location.href = '/login';
+  }
 }

@@ -9,10 +9,17 @@ import { Component } from '@angular/core';
   styleUrl: './navbar-user.component.css'
 })
 export class NavbarUserComponent {
-  constructor() {}
+  constructor() { }
+  logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('role');
+    localStorage.removeItem('email');
 
-  ngOnInit() {}
+    window.location.href = '/login';
+  }
 
-  ngOnDestroy() {}
+  ngOnInit() { }
+
+  ngOnDestroy() { }
 
 }

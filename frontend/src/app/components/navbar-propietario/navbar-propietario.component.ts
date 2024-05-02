@@ -9,4 +9,12 @@ import { Component } from '@angular/core';
 })
 export class NavbarPropietarioComponent {
 
+  logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('role');
+    localStorage.removeItem('email');
+
+    window.location.href = '/login';
+  }
+
 }
