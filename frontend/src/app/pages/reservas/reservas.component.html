@@ -1,1 +1,31 @@
-<p>reservas works!</p>
+<h3>Reservas</h3>
+
+<!-- Tabla con las reservas -->
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Fecha</th>
+      <th scope="col">Hora</th>
+      <th scope="col">Número de comensales</th>
+      <th scope="col">Nombre del cliente</th>
+      <th scope="col">Teléfono del cliente</th>
+      <th scope="col">Email del cliente</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let reserva of reservas">
+      <th scope="row">{{ reserva.id }}</th>
+      <td>{{ reserva.fecha }}</td>
+      <td>{{ reserva.hora }}</td>
+      <td>{{ reserva.num_comensales }}</td>
+      <td>{{ reserva.cliente.nombre }}</td>
+      <td>{{ reserva.cliente.telefono }}</td>
+      <td>{{ reserva.cliente.email }}</td>
+      <td>
+        <button class="btn btn-danger" (click)="eliminarReserva(reserva.id)">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
