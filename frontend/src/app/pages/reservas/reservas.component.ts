@@ -4,17 +4,17 @@ import { ReservasModule } from './reservas.module';
 @Component({
   selector: 'app-reservas',
   standalone: true,
-  imports: [ ReservasModule ],
+  imports: [ ReservasModule],
   templateUrl: './reservas.component.html',
   styleUrl: './reservas.component.css'
 })
 export class ReservasComponent {
 
 
-  constructor( private http: HttpClient) {
+  constructor(private http: HttpClient) { }
 
 
-   }
+
 
   ngOnInit(ReservasModule : ReservasModule){
     ReservasModule.getReservas();

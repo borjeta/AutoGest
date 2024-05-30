@@ -37,6 +37,4 @@ export const routes: Routes = [
         component: ReservasComponent,
     }
 
-
-
 ];
