@@ -11,15 +11,15 @@ import { ReservasModule } from './reservas.module';
 export class ReservasComponent {
 
 
-  constructor( private http: HttpClient) { }
+  constructor( private http: HttpClient) {
+
+
+   }
 
   ngOnInit(ReservasModule : ReservasModule){
-    //lanzamos el metodo para obtener las reservas
     ReservasModule.getReservas();
   }
-  //con el id de la reserva se puede editar, agregar, ver, buscar, listar, reservas por usuario, por fecha y por estado
   eliminarReserva(id: number) {
-
     console.log("Reserva eliminada");}
   editarReserva(id: number) {
     console.log("Reserva editada");
